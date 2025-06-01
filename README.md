@@ -597,3 +597,72 @@ Writing clean code makes collaboration easier and reduces bugs.
 
 
 
+# 9. Virtual Environments & Package Management
+
+### a) Creating and Managing Virtual Environments  
+A **virtual environment** is an isolated Python environment that allows us to manage dependencies separately for each project.  
+This helps avoid version conflicts and keeps our global Python clean.
+
+✅ Create a virtual environment:
+
+    python -m venv myenv
+
+✅ Activate the environment:
+
+- On Windows:
+
+      myenv\Scripts\activate
+
+- On Mac/Linux:
+
+      source myenv/bin/activate
+
+✅ Deactivate the environment:
+
+    deactivate
+
+We can also use `virtualenv` (a third-party tool) in the same way. First, install it using:
+
+    pip install virtualenv
+
+
+### b) Installing Packages with pip  
+Once inside a virtual environment, we can use **pip** to install external packages.
+
+✅ Example:
+
+    pip install requests
+
+To see installed packages:
+
+    pip list
+
+To save dependencies:
+
+    pip freeze > requirements.txt
+
+To install from a file:
+
+    pip install -r requirements.txt
+
+
+### c) Assignment Example: Use `requests` to Call a Free API
+
+✅ Create a file `api_fetch.py` and write the following:
+
+    import requests
+
+    url = "https://api.coindesk.com/v1/bpi/currentprice.json"
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        data = response.json()
+        print("Bitcoin Price in USD:", data['bpi']['USD']['rate'])
+    else:
+        print("Failed to fetch data")
+
+This script fetches Bitcoin prices from a free API and prints them.  
+We can run this only after installing `requests` in our virtual environment.
+
+Using virtual environments and pip ensures our projects are clean, portable, and easy to manage.
+
