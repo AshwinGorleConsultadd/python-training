@@ -48,25 +48,25 @@ def delete_student():
     else:
         print("Student not found.")
 
-def main():
-    initialize_file()  # to create the file when it does not exists
-    while True:
-        print("\nStudent Records Menu:")
-        print("1. Add Student")
-        print("2. Search Student")
-        print("3. Delete Student")
-        print("4. Exit")
-        choice = input("Choose an option (1-4): ")
 
-        if choice == "1":
-            add_student()
-        elif choice == "2":
-            search_student()
-        elif choice == "3":
-            delete_student()
-        elif choice == "4":
-            break
-        else:
-            print("Invalid choice.")
+initialize_file()  # to create the file when it does not exists
+while True:
+    print("\nStudent Records Menu:")
+    print("1. Add Student")
+    print("2. Search Student")
+    print("3. Delete Student")
+    print("4. Exit")
+    choice = input("Choose an option (1-4): ")
 
-main()
+    if choice == "1":
+        add_student()
+    elif choice == "2":
+        search_student()
+    elif choice == "3":
+        delete_student()
+    elif choice == "4":
+        break
+    else:
+        print("Invalid choice.")
+
+
